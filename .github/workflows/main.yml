@@ -41,6 +41,6 @@ jobs:
         run: zip -r proxy.zip apiproxy
       - name: Upload API Proxy Bundle
         id: upload
-        run: "curl --fail -X POST -H \"Content-Type: multipart/form-data\" -H \"Authorization: Bearer ${{steps.auth.outputs.access_token}}\" -F \"file=@proxy.zip\" \"https://apigee.googleapis.com/v1/organizations/${{secrets.APIGEE_ORG}}/apis?action=import&name=hello-world\"" 
+        run: "curl --fail -X POST -H \"Content-Type: multipart/form-data\" -H \"Authorization: Bearer ya29.A0ARrdaM9LSZjThv8nJq2NXVknpLJ41omPS9tWeHprX3Z2C4O7cFuR13gpYLBk_5EfI3KJlu4poWac51bQMUL7XcX4ZnDe-w5WbCb4msm8Qil3Oq_ZoilfO01p5yti0WjkNCt3vjahF5RFvfzV4VZdGh_ZJtuQDNHO4K0JrRh9cUuZ8_u3ZxoflEuGevqFbITqD3VpDJNUXnNgPW9lNVEL_HKsS4aSYvU9KeoI2oAX51eQyvqieOM-yK-jz8aYz-nV1ggBZyc\" -F \"file=@proxy.zip\" \"https://apigee.googleapis.com/v1/organizations/${{secrets.APIGEE_ORG}}/apis?action=import&name=hello-world\"" 
       - name: Deploy Revision
         run: "curl --fail -X POST -H \"Authorization: Bearer ${{steps.auth.outputs.access_token}}\" \"https://apigee.googleapis.com/v1/organizations/${{ secrets.APIGEE_ORG }}/environments/eval/apis/hello-world/revisions/${{steps.upload.outputs.apigee-revision}}/deployments?override=true\""
