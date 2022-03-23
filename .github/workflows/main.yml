@@ -36,10 +36,3 @@ jobs:
           service_account: 'my-service-account@absolute-gantry-344218.iam.gserviceaccount.com'
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.3.0
-      - name: Create API bundle
-        run: zip -r proxy.zip apiproxy
-      - name: Upload API Proxy Bundle
-        id: upload
-        run: "echo \"::set-output name=apigee-revision::$(curl --fail -X POST -H \"Content-Type: multipart/form-data\" -H \"Authorization: Bearer ya29.A0ARrdaM8_MlluFhDrlAXsLNIWrZKtBW5vSZnzwtKG7l00FCKiyX57tJVqb5sEzOFDpt2QUnw76dNw5blaJ76CwB2MegsJINyLrLOZoBS-EiVbJ2vRXOf2OK-azaMiw_rr8MM_86NJl_hLp3RjWp8MEd-9zQQ2EixOzcP3bp2WAaiaJx8TvIYj2KQ6twAIsm0loG0ZKuzSb5gARJSkCfRsimo5HizsI10MoCfUCYlrrMbzUWoRxlUNeFnqdXzhg86iGw6o0Q\" -F \"file=@proxy.zip\" \"https://apigee.googleapis.com/v1/organizations/absolute-gantry-344218/apis?action=import&name=hello-world\" --silent | jq --raw-output .revision)\""
-      - name: Deploy Revision
-        run: "curl --fail -X POST -H \"Authorization: Bearer ya29.A0ARrdaM8_MlluFhDrlAXsLNIWrZKtBW5vSZnzwtKG7l00FCKiyX57tJVqb5sEzOFDpt2QUnw76dNw5blaJ76CwB2MegsJINyLrLOZoBS-EiVbJ2vRXOf2OK-azaMiw_rr8MM_86NJl_hLp3RjWp8MEd-9zQQ2EixOzcP3bp2WAaiaJx8TvIYj2KQ6twAIsm0loG0ZKuzSb5gARJSkCfRsimo5HizsI10MoCfUCYlrrMbzUWoRxlUNeFnqdXzhg86iGw6o0Q\" \"https://apigee.googleapis.com/v1/organizations/absolute-gantry-344218/environments/eval/apis/hello-world/revisions/${{steps.upload.outputs.apigee-revision}}/deployments?override=true\""
