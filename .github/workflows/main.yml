@@ -1,30 +1,20 @@
-name: proxy-ci
-
 on: workflow_dispatch
-
 jobs:
   build:
-    name: "Deploy To Dev"
-    runs-on: ubuntu-latest
+    # Allow the job to fetch a GitHub ID token
     permissions:
-      contents: read
       id-token: write
+      contents: read
+
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-	    - id: 'auth'
-		    name: 'Authenticate to Google Cloud'
-		    uses: 'google-github-actions/auth@v0.3.1'
-		    with:
-			    token_format: 'access_token'
-			    workload_identity_provider: 'projects/808728812247/locations/global/workloadIdentityPools/myfirstpool/providers/github'
-			    service_account: 'my-service-account@airy-strength-338009.iam.gserviceaccount.com'
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0.3.0
-      - name: Create API bundle
-        run: zip -r proxy.zip apiproxy
-      - name: Upload API Proxy Bundle
-        id: upload
-        run: "echo \"::set-output name=apigee-revision::$(curl --fail -X POST -H \"Content-Type: multipart/form-data\" -H \"Authorization: Bearer ${{steps.auth.outputs.access_token}}\" -F \"file=@proxy.zip\" \"https://apigee.googleapis.com/v1/organizations/absolute-gantry-344218/apis?action=import&name=hello-world\" --silent | jq --raw-output .revision)\""
-      - name: Deploy Revision
-        run: "curl --fail -X POST -H \"Authorization: Bearer ${{steps.auth.outputs.access_token}}\" \"https://apigee.googleapis.com/v1/organizations/absolute-gantry-344218/environments/eval/apis/hello-world/revisions/${{steps.upload.outputs.apigee-revision}}/deployments?override=true\""
+      - uses: actions/checkout@v2
+
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v0.3.1'
+        with:
+          token_format: 'access_token'
+          workload_identity_provider: 'projects/762356276584/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+          service_account: 's1-679@absolute-gantry-344218.iam.gserviceaccount.com'
