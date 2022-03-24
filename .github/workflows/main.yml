@@ -32,7 +32,5 @@ jobs:
           service_account: 'my-service-account@airy-strength-338009.iam.gserviceaccount.com'
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.3.0
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0.3.0
       - name: Create API bundle
         run: zip -r proxy.zip apiproxy
