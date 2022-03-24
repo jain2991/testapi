@@ -30,7 +30,7 @@ jobs:
           token_format: "access_token"
           create_credentials_file: true
           activate_credentials_file: true
-          workload_identity_provider: my-service-account@absolute-gantry-344218.iam.gserviceaccount.com
+          workload_identity_provider: projects/762356276584/locations/global/workloadIdentityPools/my-pool
           service_account: s1-679@absolute-gantry-344218.iam.gserviceaccount.com
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.3.0
