@@ -33,4 +33,4 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.3.0
       - name: runtest
-        run: "echo ${{steps.auth.outputs.access_token}}"
+        run:  echo "${{steps.auth.outputs.access_token}}"
