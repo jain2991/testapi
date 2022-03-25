@@ -18,6 +18,4 @@ jobs:
     - id: 'gcloud'
       name: 'gcloud'
       run: |-
-        gcloud config set project absolute-gantry-344218
-        gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}" 
-        gcloud services list
+        echo "${{ steps.auth.outputs.credentials_file_path }}"         
