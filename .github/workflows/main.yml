@@ -14,15 +14,7 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0'
         with:
-          workload_identity_provider: 'projects/762356276584/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-          service_account: 's1-679@absolute-gantry-344218.iam.gserviceaccount.com'
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0
-      - name: Create API bundle
-        run: zip -r proxy.zip apiproxy
-      - name: 'Upload Proxy'
-        run: |-
-          curl https://apigee.googleapis.com/v1/organizations/absolute-gantry-344218/apis?action=import&name=hello-world \
-            --header "Authorization: Bearer ${{ steps.auth.outputs.access_token }}" \
-            --header "Content-Type: multipart/form-data" \
-            -F "file=@proxy.zip" \
+  
