@@ -16,6 +16,8 @@ jobs:
           create_credentials_file: 'true'
           workload_identity_provider: 'projects/762356276584/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
           service_account: 's1-679@absolute-gantry-344218.iam.gserviceaccount.com'
+    - name: Set up Cloud SDK
+      uses: 'google-github-actions/setup-gcloud@v0.3.0'
     - name: Create API bundle
       run: zip -r proxy.zip . -i apiproxy
     - name: Upload API Proxy Bundle
