@@ -1,5 +1,7 @@
 name: proxy-ci
+
 on: workflow_dispatch
+
 jobs:
   build:
     name: "Deploy To Dev"
@@ -9,12 +11,11 @@ jobs:
       id-token: 'write'
     steps:
       - name: Checkout
-        uses: 'actions/checkout@v3'
-      - id: 'auth'
-        name: 'Authenticate to Google Cloud'
-        uses: 'google-github-actions/auth@v0'
-        with:
-          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
-  
+        uses: actions/checkout@v2
+      - name: Create API bundle
+        run: zip -r proxy.zip apiproxy
+      - name: Upload API Proxy Bundle
+        id: upload
+        run: "echo \"::set-output name=apigee-revision::$(curl --fail -X POST -H \"Content-Type: multipart/form-data\" -H \"Authorization: Bearer ${{ secrets.OAUTH_TOKEN }}\" -F \"file=@proxy.zip\" \"https://apigee.googleapis.com/v1/organizations/absolute-gantry-344218/apis?action=import&name=hello-world\" --silent | jq --raw-output .revision)\""
+      - name: Deploy Revision
+        run: "curl --fail -X POST -H \"Authorization: Bearer ${{ secrets.OAUTH_TOKEN }}\" \"https://apigee.googleapis.com/v1/organizations/absolute-gantry-344218/environments/eval/apis/hello-world/revisions/${{steps.upload.outputs.apigee-revision}}/deployments?override=true\""
