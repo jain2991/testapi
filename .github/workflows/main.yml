@@ -14,13 +14,7 @@
 
 name: proxy-ci
 
-on: 
-  push:
-    branches:
-      - 'main'
-    paths:
-
-      - '**.xml'
+on: workflow_dispatch
 
 jobs:
   build:
@@ -32,19 +26,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - id: auth
-        uses: google-github-actions/auth@v0.4.0
-        with:
-          token_format: "access_token"
-          create_credentials_file: true
-          activate_credentials_file: true
-          workload_identity_provider: 'projects/762356276584/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-          service_account: 's1-679@absolute-gantry-344218.iam.gserviceaccount.com'
-
-      - name: Create API bundle
-        run: zip -r proxy.zip apiproxy
-      - name: Upload API Proxy Bundle
-        id: upload
-        run: "echo \"::set-output name=apigee-revision::$(curl --fail -X POST -H \"Content-Type: multipart/form-data\" -H \"Authorization: Bearer ${{steps.auth.outputs.access_token}}\" -F \"file=@proxy.zip\" \"https://apigee.googleapis.com/v1/organizations/absolute-gantry-344218/apis?action=import&name=hello-world\" --silent | jq --raw-output .revision)\""
-      - name: Deploy Revision
-        run: "curl --fail -X POST -H \"Authorization: Bearer ${{steps.auth.outputs.access_token}}\" \"https://apigee.googleapis.com/v1/organizations/absolute-gantry-344218/environments/eval/apis/hello-world/revisions/${{steps.upload.outputs.apigee-revision}}/deployments?override=true\""
+      - name: find proxy
+        run: |-
+          f=find test/apiproxy/ -name "*xml"
+          "echo "::set-output name=proxy-name::${f%.*}"
+      
