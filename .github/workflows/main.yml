@@ -14,7 +14,13 @@
 
 name: proxy-ci
 
-on: workflow_dispatch
+on: 
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '.github/workflows/ci.yaml'
+      - 'src/**'
 
 jobs:
   build:
