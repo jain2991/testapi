@@ -3,7 +3,7 @@
     <DisplayName>Assign Message-1</DisplayName>
     <Properties/>
     <Set>
-        <Payload contentType="text">"Hi"</Payload>
+        <Payload contentType="text">"Hey"</Payload>
     </Set>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
     <AssignTo createNew="false" transport="http" type="response"/>
