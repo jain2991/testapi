@@ -1,12 +1,6 @@
 name: proxy-ci
 
-on: 
-  push:
-    branches:
-      - 'main'
-    paths:
-      - '.github/workflows/ci.yaml'
-      - '**.xml'
+on: workflow_dispatch
 jobs:
   build:
     name: "Deploy To Dev"
