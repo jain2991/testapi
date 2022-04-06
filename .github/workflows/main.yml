@@ -1,4 +1,4 @@
-name: proxy-ci
+name: Apigee-POC
 
 on: workflow_dispatch
 jobs:
