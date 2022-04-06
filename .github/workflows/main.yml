@@ -32,4 +32,4 @@ jobs:
         with: 
           java-version: 1.8
       - name: Build with maven
-        run: mvn apigee-config:developers -Pdev -Dapigee.config.options=create -Dauthtype=oauth
+        run: mvn apigee-config:developers -Pdev -Dapigee.config.options=create -Dbearer=${{steps.auth.outputs.access_token}}
