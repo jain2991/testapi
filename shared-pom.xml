@@ -126,7 +126,7 @@
                 <apigee.org>absolute-gantry-344218</apigee.org>
                 <apigee.env>eval</apigee.env>
                 <apigee.authtype>oauth</apigee.authtype> <!-- only option -->
-                <apigee.bearer>ya29.A0ARrdaM-Z3uVeUyWbMgMCu0l3FUWg9GdHSCBjcxNyr0-UHgNLPJ1gJWFk5a3-pUkAA_mngla3gX5Be5iU8Jao67d9VhUs-1tK4WqW85uEzOMkOJAqjPuOG4jKaTUUxCbj52ovsQ63PdSME5UeDtml-Q4_IKBeRgcS_Djq8Wb3mfE-MPKs1Oqs7jZRnTKuUgi9E3Q7KiCs1mF_ACP9id1c_w07pRSw5PuckeUU9xsWsViCFFNICMaS6xcak3h8gqXmTTNz9A</apigee.bearer> <!-- this takes precedence over service account file -->
+                <apigee.bearer>${{ env.aToken }}</apigee.bearer> <!-- this takes precedence over service account file -->
             </properties>
         </profile>
     </profiles>
