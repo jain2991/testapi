@@ -118,29 +118,16 @@
     </build>
     <profiles>
         <profile>
-            <id>test</id>
-            <properties>
-                <apigee.profile>test</apigee.profile>
-                <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
-                <apigee.apiversion>v1</apigee.apiversion>
-                <apigee.org>${org}</apigee.org>
-                <apigee.env>${env}</apigee.env>
-                <apigee.authtype>oauth</apigee.authtype> <!-- only option -->
-                <apigee.bearer>${bearer}</apigee.bearer> <!-- this takes precedence over service account file -->
-                <apigee.serviceaccount.file>${file}</apigee.serviceaccount.file>
-            </properties>
-        </profile>
-        <profile>
             <id>dev</id>
             <properties>
                 <apigee.profile>dev</apigee.profile>
                 <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
                 <apigee.apiversion>v1</apigee.apiversion>
-                <apigee.org>${org}</apigee.org>
-                <apigee.env>${env}</apigee.env>
+                <apigee.org>absolute-gantry-344218</apigee.org>
+                <apigee.env>eval</apigee.env>
                 <apigee.authtype>oauth</apigee.authtype> <!-- only option -->
-                <apigee.bearer>${bearer}</apigee.bearer> <!-- this takes precedence over service account file -->
-                <apigee.serviceaccount.file>${file}</apigee.serviceaccount.file>
+                <apigee.bearer>${{ steps.auth.outputs.access_token }}</apigee.bearer> <!-- this takes precedence over service account file -->
+                <apigee.serviceaccount>s1-679@absolute-gantry-344218.iam.gserviceaccount.com</apigee.serviceaccount>
             </properties>
         </profile>
     </profiles>
