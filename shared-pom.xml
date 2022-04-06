@@ -126,7 +126,7 @@
                 <apigee.org>absolute-gantry-344218</apigee.org>
                 <apigee.env>eval</apigee.env>
                 <apigee.authtype>oauth</apigee.authtype> <!-- only option -->
-                <apigee.bearer>${{ steps.auth.outputs.access_token }}</apigee.bearer> <!-- this takes precedence over service account file -->
+                <apigee.bearer>${{steps.auth.outputs.access_token}}</apigee.bearer> <!-- this takes precedence over service account file -->
                 <apigee.serviceaccount>s1-679@absolute-gantry-344218.iam.gserviceaccount.com</apigee.serviceaccount>
             </properties>
         </profile>
