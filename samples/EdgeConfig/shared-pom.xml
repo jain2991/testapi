@@ -118,7 +118,7 @@
     </build>
     <profiles>
         <profile>
-            <id>test</id>
+            <id>dev</id>
             <properties>
                 <apigee.profile>dev</apigee.profile>
                 <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
