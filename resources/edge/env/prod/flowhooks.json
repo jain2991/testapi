@@ -1,6 +1,0 @@
-[
-	{
-	    "flowHookPoint":"PreProxyFlowHook",
-	    "sharedFlow":"test"
-	 }
- ]

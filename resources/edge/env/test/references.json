@@ -1,7 +1,0 @@
-[
-  {
-    "name" : "sampleReference",
-    "refers": "testKeyStorename",
-    "resourceType": "KeyStore"
-  }
-]
