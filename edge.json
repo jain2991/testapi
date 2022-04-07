@@ -1,7 +1,7 @@
 {
     "version": "1.0",
     "envConfig": {
-        "test": {
+        "eval": {
             "targetServers": [
                 {
                     "name": "Enterprisetarget",
