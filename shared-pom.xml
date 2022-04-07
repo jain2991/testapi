@@ -25,7 +25,8 @@
     <!-- Since Maven 3.0.3, for two plugins bound to the same phase, the order 
          of execution is the same as the order in which you define them. -->
     <build>
-        <plugin>
+        <plugins>
+            <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>2.6</version>
                 <executions>
