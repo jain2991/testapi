@@ -71,7 +71,7 @@
                 <artifactId>apigee-config-maven-plugin</artifactId>
                 <version>2.3.0</version>
                 <executions>
-                    
+                   
                     <execution>
                         <id>create-config-apiproduct</id>
                         <phase>install</phase>                        
@@ -79,9 +79,10 @@
                             <goal>apiproducts</goal>
                         </goals>
                     </execution>
-                    
+         
                 </executions>
             </plugin>            
+
         </plugins>
     </build>
     <profiles>
