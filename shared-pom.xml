@@ -37,7 +37,7 @@
         </pluginRepository>
     </pluginRepositories>
     <properties>
-            <main.basedir>${project.basedir}</main.basedir>
+            <dir>${project.build.directory}</dir>
     </properties>
     <build>
         <plugins>
@@ -59,7 +59,7 @@
                             <overwrite>true</overwrite>
                             <encoding>UTF-8</encoding>
                             <echo message="basedir parent : ${basedir}"/>
-                            <outputDirectory>${basedir}/</outputDirectory>
+                            <outputDirectory>${dir}/</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>apiproxy</directory>
