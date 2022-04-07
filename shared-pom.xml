@@ -55,11 +55,10 @@
                         <configuration>
                             <overwrite>true</overwrite>
                             <encoding>UTF-8</encoding>
-                            <echo message="basedir parent : ${basedir}"/>
                             <outputDirectory>${dir}/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>apiproxy</directory>
+                                    <directory>test/Mock-v1/apiproxy/</directory>
                                 </resource>
                             </resources>
                         </configuration>
