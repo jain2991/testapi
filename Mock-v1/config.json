@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "test",
+            "name": "eval",
             "policies": [
                 {
                     "name": "AM-Set-Headers.xml",
@@ -9,42 +9,6 @@
                         {
                             "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV']",
                             "value": "test"
-                        }
-                    ]
-                }
-            ],
-            "proxies": [
-                {
-                    "name": "default.xml",
-                    "tokens": [
-                        {
-                            "xpath": "/ProxyEndpoint/HTTPProxyConnection/BasePath",
-                            "value": "/v1/mock"
-                        }
-                    ]
-                }
-            ],
-            "targets": [
-                {
-                    "name": "default.xml",
-                    "tokens": [
-                        {
-                            "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
-                            "value": "https://mocktarget.apigee.net"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "prod",
-            "policies": [
-                {
-                    "name": "AM-Set-Headers.xml",
-                    "tokens": [
-                        {
-                            "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV']",
-                            "value": "prod"
                         }
                     ]
                 }
