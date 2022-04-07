@@ -32,4 +32,4 @@ jobs:
         with: 
           java-version: 1.8
       - name: Build with maven
-        run: mvn install apigee-enterprise:deploy -Peval -Dapigee.config.options=create -Dbearer=${{steps.auth.outputs.access_token}}
+        run: mvn install apigee-enterprise:deploy -Peval -Dapigee.config.options=create -Dbearer=${{steps.auth.outputs.access_token}} -Ddir=test/Mock-v1/
