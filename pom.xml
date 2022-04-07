@@ -8,8 +8,8 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Apigee</groupId>
-	<artifactId>Hello-World</artifactId>
+	<artifactId>hello-world</artifactId>
 	<version>1.0</version>
-	<name>Hello-World</name>
+	<name>hello-world</name>
 	<packaging>pom</packaging>
 </project>
