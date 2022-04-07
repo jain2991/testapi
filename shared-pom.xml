@@ -36,8 +36,8 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
-    <properties>
-            <dir>${project.build.directory}</dir>
+        <properties>
+            <main.basedir>../Mock-v1/</main.basedir>
     </properties>
     <build>
         <plugins>
