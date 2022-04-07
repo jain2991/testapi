@@ -36,9 +36,6 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
-        <properties>
-            <main.basedir>../Mock-v1/</main.basedir>
-    </properties>
     <build>
         <plugins>
             <plugin>
