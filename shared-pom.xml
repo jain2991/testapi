@@ -36,9 +36,6 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
-    <properties>
-            <main.basedir>${project.basedir}</main.basedir>
-    </properties>
 
     <build>
         <plugins>
@@ -59,8 +56,6 @@
                         <configuration>
                             <overwrite>true</overwrite>
                             <encoding>UTF-8</encoding>
-                             <echo message="basedir parent : ${basedir}"/>
-                            <outputDirectory>${basedir}/</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>apiproxy</directory>
