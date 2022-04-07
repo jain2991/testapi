@@ -19,22 +19,25 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
+    <properties>
+            <main.basedir>${project.basedir}</main.basedir>
+    </properties>
     <!-- Since Maven 3.0.3, for two plugins bound to the same phase, the order 
          of execution is the same as the order in which you define them. -->
     <build>
-        <plugins>
-            <plugin>
+        <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.3</version>
+                <version>2.6</version>
                 <executions>
                     <execution>
-                        <id>copy-resources-step</id>
-                        <phase>prepare-package</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
                             <overwrite>true</overwrite>
+                            <encoding>UTF-8</encoding>
+                             <echo message="basedir parent : ${basedir}"/>
                             <outputDirectory>${basedir}/target/apiproxy</outputDirectory>
                             <resources>
                                 <resource>
@@ -50,7 +53,13 @@
                 <artifactId>apigee-edge-maven-plugin</artifactId>
                 <version>2.3.0</version>
                 <executions>
-                    
+                    <execution>
+                        <id>configure-bundle</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>configure</goal>
+                        </goals>
+                    </execution>
                     <execution>
                         <id>deploy-bundle</id>
                         <phase>install</phase>
