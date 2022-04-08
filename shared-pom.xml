@@ -83,7 +83,7 @@
         <profile>
             <id>eval</id>
             <properties>
-				<apigee.profile>eval</apigee.profile>
+		<apigee.profile>eval</apigee.profile>
                 <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
                 <apigee.apiversion>v1</apigee.apiversion>
                 <apigee.org>absolute-gantry-344218</apigee.org>
