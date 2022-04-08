@@ -34,4 +34,4 @@ jobs:
           java-version: 1.8
       - name: Build with maven  
         working-directory: Mock-v1/
-        run: mvn apigee-enterprise:deploy -Dbearer=${{steps.auth.outputs.access_token}}
+        run: mvn apigee-enterprise:deploy -Dbearer=${{steps.auth.outputs.access_token}} -X
