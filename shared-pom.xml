@@ -1,22 +1,5 @@
-<!--
-
-    Copyright (C) 2014 Apigee Corporation
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-            http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
--->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>apigee</groupId>
     <artifactId>parent-pom</artifactId>
@@ -36,29 +19,26 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
+    <!-- Since Maven 3.0.3, for two plugins bound to the same phase, the order 
+         of execution is the same as the order in which you define them. -->
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>2.5</version>
-            </plugin>
-
-            <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.6</version>
+                <version>2.3</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
+                        <id>copy-resources-step</id>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
                             <overwrite>true</overwrite>
-                            <encoding>UTF-8</encoding>
-                            <outputDirectory>${dir}/</outputDirectory>
+                            <outputDirectory>${basedir}/target/apiproxy</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>test/Mock-v1/apiproxy/</directory>
+                                    <directory>apiproxy</directory>
                                 </resource>
                             </resources>
                         </configuration>
@@ -68,10 +48,10 @@
             <plugin>
                 <groupId>io.apigee.build-tools.enterprise4g</groupId>
                 <artifactId>apigee-edge-maven-plugin</artifactId>
-                <version>2.3.1</version>
+                <version>2.3.0</version>
                 <executions>
                     <execution>
-                        <id>configure-bundle</id>
+                        <id>configure-bundle-step</id>
                         <phase>package</phase>
                         <goals>
                             <goal>configure</goal>
@@ -86,21 +66,46 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.apigee.edge.config</groupId>
+                <artifactId>apigee-config-maven-plugin</artifactId>
+                <version>2.3.0</version>
+                <executions>
+                    
+                    <execution>
+                        <id>create-config-apiproduct</id>
+                        <phase>install</phase>                        
+                        <goals>
+                            <goal>apiproducts</goal>
+                        </goals>
+                    </execution>
+                    
+                </executions>
+            </plugin>            
+
         </plugins>
     </build>
-<!-- This is where you add the environment specific properties under various profile names -->
- <profiles>
+    <profiles>
         <profile>
             <id>eval</id>
             <properties>
-                <apigee.profile>eval</apigee.profile>
+				<apigee.profile>eval</apigee.profile>
                 <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
                 <apigee.apiversion>v1</apigee.apiversion>
                 <apigee.org>absolute-gantry-344218</apigee.org>
                 <apigee.env>eval</apigee.env>
                 <apigee.authtype>oauth</apigee.authtype> <!-- only option -->
-                <apigee.bearer>${bearer}</apigee.bearer> <!-- this takes precedence over service account file -->
+                <apigee.bearer>${bearer}</apigee.bearer> 
+                <apigee.options>override</apigee.options>
             </properties>
         </profile>
     </profiles>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
