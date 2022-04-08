@@ -104,7 +104,7 @@
                 <apigee.org>absolute-gantry-344218</apigee.org>
                 <apigee.env>eval</apigee.env>
                 <apigee.authtype>oauth</apigee.authtype> <!-- only option -->
-                <apigee.bearer>ya29.A0ARrdaM-aAChnDRICStpujUBozlzmgKdmGI-aSrCYzFWzWVmb3I_Al1ANfNBEB-AHLuQKtHWLmzxTaLdF-eiBl1qmWumwxbGZ84oFBkK9jd0YElT2lQ3DF7nQtJT4J97EsCY-SccpJrBXHxpdS8TMFLjDY36r9PEjXLHHu_W8dk7pAowOUOTlgHPEW_jQUvEFrTvXr9LLW-u-e_amD_1vQHzknu17D6EyUhG3qP0fwYlq9DymMA1I7WT0SQzKVww4Ga4Tb1Y</apigee.bearer> 
+                <apigee.bearer>{bearer}</apigee.bearer> 
             </properties>
         </profile>
     </profiles>
