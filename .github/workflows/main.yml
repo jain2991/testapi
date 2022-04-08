@@ -27,9 +27,11 @@ jobs:
         #run: "echo \"::set-output name=apigee-revision::$(curl --fail -X POST -H \"Content-Type: multipart/form-data\" -H \"Authorization: Bearer ${{steps.auth.outputs.access_token}}\" -F \"file=@proxy.zip\" \"https://apigee.googleapis.com/v1/organizations/absolute-gantry-344218/apis?action=import&name=hello-world\" --silent | jq --raw-output .revision)\""
       #- name: Deploy Revision
        # run: "curl --fail -X POST -H \"Authorization: Bearer ${{steps.auth.outputs.access_token}}\" \"https://apigee.googleapis.com/v1/organizations/absolute-gantry-344218/environments/eval/apis/hello-world/revisions/${{steps.upload.outputs.apigee-revision}}/deployments?override=true\""
+    
       - name: "maven"
         uses: actions/setup-java@v1
         with: 
           java-version: 1.8
-      - name: Build with maven
+      - name: Build with maven  
+        working-directory: HelloWorld
         run: mvn install apigee-enterprise:deploy -Dbearer=${{steps.auth.outputs.access_token}}
