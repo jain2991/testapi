@@ -104,7 +104,8 @@
                 <apigee.org>absolute-gantry-344218</apigee.org>
                 <apigee.env>eval</apigee.env>
                 <apigee.authtype>oauth</apigee.authtype> <!-- only option -->
-                <apigee.bearer>{bearer}</apigee.bearer> 
+                <apigee.bearer>{bearer}</apigee.bearer>
+                <apigee.options>override</apigee.options>
             </properties>
         </profile>
     </profiles>
