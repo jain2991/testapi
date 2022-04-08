@@ -1,10 +1,18 @@
 {
     "configurations": [
         {
-            "name": "sit",
+            "name": "eval",
             "policies": [],
             "proxies": [],
-            "targets": []
+            "targets": [{
+                    "name": "default.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
+                            "value": "https://mocktargt.apigee.net"
+                        }
+                    ]
+                }]
         },
         {
             "name": "uat",
