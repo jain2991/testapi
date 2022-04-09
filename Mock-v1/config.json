@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "eval",
+            "name": "test",
             "policies": [
                 {
                     "name": "AM-Set-Headers.xml",
