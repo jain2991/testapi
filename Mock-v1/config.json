@@ -8,7 +8,7 @@
                     "tokens": [
                         {
                             "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV']",
-                            "value": "test"
+                            "value": "eval"
                         }
                     ]
                 }
@@ -30,7 +30,7 @@
                     "tokens": [
                         {
                             "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
-                            "value": "https://mocktargt.apigee.net"
+                            "value": "https://mocktarget.apigee.net"
                         }
                     ]
                 }
