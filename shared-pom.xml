@@ -166,13 +166,13 @@
                             <goal>reports</goal>
                         </goals>
                     </execution>
-                    <execution> 
+                   <!-- <execution> 
                         <id>create-config-flowhooks</id>
                         <phase>install</phase>
                         <goals>
                             <goal>flowhooks</goal>
                         </goals>
-                    </execution>
+                    </execution> -->
                     <execution>
                         <id>import-app-keys</id>
                         <phase>install</phase>                        
