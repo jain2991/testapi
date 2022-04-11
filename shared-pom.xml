@@ -96,13 +96,13 @@
                 <artifactId>apigee-config-maven-plugin</artifactId>
                 <version>2.3.0</version>
                 <executions>
-                  <!--  <execution>
+                    <execution>
                         <id>create-config-targetserver</id>
                         <phase>install</phase>                        
                         <goals>
                             <goal>targetservers</goal>
                         </goals>
-                    </execution> -->
+                    </execution>
                     <execution>
                         <id>create-config-kvm</id>
                         <phase>install</phase>                        
