@@ -28,6 +28,6 @@
     <groupId>apigee</groupId>
     <artifactId>security-sharedflow</artifactId>
     <version>1.0</version>
-    <name>security-sharedflow</name>
+    <name>security1-sharedflow</name>
     <packaging>pom</packaging>
 </project>
