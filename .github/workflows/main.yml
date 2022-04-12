@@ -33,5 +33,5 @@ jobs:
         with: 
           java-version: 1.8
       - name: Build with maven  
-        working-directory: security/
+        working-directory: Mock-v1/
         run: mvn install -Ptest -Dbearer=${{steps.auth.outputs.access_token}} -X -Dapigee.config.options=create -Doptions=validate
