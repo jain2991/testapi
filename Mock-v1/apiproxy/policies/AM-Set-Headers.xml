@@ -5,6 +5,7 @@
     <Set>
         <Headers>
             <Header name="ENV">replaced_by_config_json</Header>
+            <Header name="ENV1">replaced_by_config_json</Header>
         </Headers>
     </Set>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
