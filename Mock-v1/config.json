@@ -9,7 +9,11 @@
                         {
                             "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV']",
                             "value": "eval"
-                        }
+                        },
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV1']",
+                            "value": "eval1"
+                        },
                     ]
                 }
             ],
