@@ -112,20 +112,20 @@
             </properties>
         </profile>
       
-        <profile>
+         <profile>
             <id>prod</id>
             <properties>
                 <apigee.profile>prod</apigee.profile>
                 <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
                 <apigee.apiversion>v1</apigee.apiversion>
-                <apigee.org>${org}</apigee.org>
-                <apigee.env>${env}</apigee.env>
+                <apigee.org>absolute-gantry-344218</apigee.org>
+                <apigee.env>test</apigee.env>
                 <apigee.apitype>sharedflow</apigee.apitype> <!-- This is only for Shared Flows. Not required for deploying proxy -->
                 <apigee.authtype>oauth</apigee.authtype> <!-- only option -->
-                <apigee.bearer>${bearer}</apigee.bearer> <!-- this takes precedence over service account file -->
-                <apigee.serviceaccount.file>${file}</apigee.serviceaccount.file>
+                <apigee.bearer>${bearer}</apigee.bearer> <!-- this takes precedence over service account file -->                
+             
                 <apigee.options>override</apigee.options> <!-- override is default. Other options are async|clean-->
-                <apigee.googletoken.email>${googleTokenEmail}</apigee.googletoken.email> <!-- Available in Apigee X and Apigee hybrid 1.6 + -->
+              <!-- Available in Apigee X and Apigee hybrid 1.6 + -->
             </properties>
         </profile>
     </profiles>
