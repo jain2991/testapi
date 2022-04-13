@@ -34,4 +34,4 @@ jobs:
           java-version: 1.8
       - name: Build with maven  
         working-directory: security/
-        run: mvn  install -PProd -Dbearer=${{steps.auth.outputs.access_token}} -Dapigee.config.options=create
+        run: mvn  install -Pprod -Dbearer=${{steps.auth.outputs.access_token}} -Dapigee.config.options=create
