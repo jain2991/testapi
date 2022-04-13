@@ -13,6 +13,10 @@
                         {
                             "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV1']",
                             "value": "eval1"
+                        },
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV2']",
+                            "value": "eval2"
                         }
                     ]
                 }
@@ -23,7 +27,7 @@
                     "tokens": [
                         {
                             "xpath": "/ProxyEndpoint/HTTPProxyConnection/BasePath",
-                            "value": "/v1/mock"
+                            "value": "/v1/mock1"
                         }
                     ]
                 }
@@ -34,7 +38,7 @@
                     "tokens": [
                         {
                             "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
-                            "value": "https://mocktargt.apigee.net"
+                            "value": "https://mocktargt1.apigee.net"
                         }
                     ]
                 }
@@ -49,6 +53,10 @@
                         {
                             "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV']",
                             "value": "prod"
+                        },
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV1']",
+                            "value": "test"
                         }
                     ]
                 }
@@ -59,7 +67,7 @@
                     "tokens": [
                         {
                             "xpath": "/ProxyEndpoint/HTTPProxyConnection/BasePath",
-                            "value": "/v1/mock"
+                            "value": "/v1/mock/test"
                         }
                     ]
                 }
@@ -70,7 +78,7 @@
                     "tokens": [
                         {
                             "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
-                            "value": "https://mocktargt.apigee.net"
+                            "value": "https://mocktargt1.apigee.net"
                         }
                     ]
                 }
