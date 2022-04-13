@@ -8,15 +8,7 @@
                     "tokens": [
                         {
                             "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV']",
-                            "value": "eval"
-                        },
-                        {
-                            "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV1']",
-                            "value": "eval1"
-                        },
-                        {
-                            "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV2']",
-                            "value": "eval2"
+                            "value": "test"
                         }
                     ]
                 }
