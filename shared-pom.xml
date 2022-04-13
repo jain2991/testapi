@@ -204,7 +204,7 @@
         <profile>
             <id>Prod</id>
             <properties>
-                <apigee.profile>test</apigee.profile>
+                <apigee.profile>Prod</apigee.profile>
                 <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
                 <apigee.apiversion>v1</apigee.apiversion>
                 <apigee.org>absolute-gantry-344218</apigee.org>
