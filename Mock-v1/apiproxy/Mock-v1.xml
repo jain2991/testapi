@@ -1,0 +1,19 @@
+<APIProxy revision="10" name="Mock-v1">
+    <DisplayName>Mock-API</DisplayName>
+    <Description>Apigee mock target service endpoint</Description>
+    <CreatedAt>1649935608402</CreatedAt>
+    <LastModifiedAt>1649935608402</LastModifiedAt>
+    <BasePaths>/test/v1/mock1</BasePaths>
+    <Policies>
+        <Policy>AM-Set-Headers</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://Script-1.js</Resource>
+    </Resources>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>
