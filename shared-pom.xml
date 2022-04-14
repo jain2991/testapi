@@ -201,20 +201,5 @@
               <!-- Available in Apigee X and Apigee hybrid 1.6 + -->
             </properties>
         </profile>
-        <profile>
-            <id>Prod</id>
-            <properties>
-                <apigee.profile>Prod</apigee.profile>
-                <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
-                <apigee.apiversion>v1</apigee.apiversion>
-                <apigee.org>absolute-gantry-344218</apigee.org>
-                <apigee.env>test</apigee.env>
-                <apigee.authtype>oauth</apigee.authtype> <!-- only option -->
-                <apigee.bearer>${bearer}</apigee.bearer> <!-- this takes precedence over service account file -->                
-             
-                <apigee.options>override</apigee.options> <!-- override is default. Other options are async|clean-->
-              <!-- Available in Apigee X and Apigee hybrid 1.6 + -->
-            </properties>
-        </profile>
     </profiles>
 </project>
