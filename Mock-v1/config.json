@@ -49,18 +49,26 @@
             ]
         },
         {
-            "name": "prod",
+            "name": "Prod",
             "policies": [
                 {
                     "name": "AM-Set-Headers.xml",
                     "tokens": [
                         {
-                            "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV']",
-                            "value": "prod"
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='h1']",
+                            "value": "v1"
                         },
                         {
-                            "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV1']",
-                            "value": "test"
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='h2']",
+                            "value": "v2"
+                        },
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='h3']",
+                            "value": "v3"
+                        },
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='h4']",
+                            "value": "v4"
                         }
                     ]
                 }
@@ -71,7 +79,7 @@
                     "tokens": [
                         {
                             "xpath": "/ProxyEndpoint/HTTPProxyConnection/BasePath",
-                            "value": "/v1/mock/test"
+                            "value": "/test/v1/mock1"
                         }
                     ]
                 }
@@ -87,6 +95,4 @@
                     ]
                 }
             ]
-        }
-    ]
 }
