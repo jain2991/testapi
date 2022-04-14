@@ -1,0 +1,92 @@
+{
+    "configurations": [
+        {
+            "name": "test",
+            "policies": [
+                {
+                    "name": "AM-Set-Headers.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='h1']",
+                            "value": "v1"
+                        },
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='h2']",
+                            "value": "v2"
+                        },
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='h3']",
+                            "value": "v3"
+                        },
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='h4']",
+                            "value": "v4"
+                        }
+                    ]
+                }
+            ],
+            "proxies": [
+                {
+                    "name": "default.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/ProxyEndpoint/HTTPProxyConnection/BasePath",
+                            "value": "/test/v1/mock1"
+                        }
+                    ]
+                }
+            ],
+            "targets": [
+                {
+                    "name": "default.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
+                            "value": "https://mocktargt1.apigee.net"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "prod",
+            "policies": [
+                {
+                    "name": "AM-Set-Headers.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV']",
+                            "value": "prod"
+                        },
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV1']",
+                            "value": "test"
+                        }
+                    ]
+                }
+            ],
+            "proxies": [
+                {
+                    "name": "default.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/ProxyEndpoint/HTTPProxyConnection/BasePath",
+                            "value": "/v1/mock/test"
+                        }
+                    ]
+                }
+            ],
+            "targets": [
+                {
+                    "name": "default.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
+                            "value": "https://mocktargt1.apigee.net"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
