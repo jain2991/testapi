@@ -5,7 +5,7 @@ on:
     inputs:
       name:
         type: choice
-        description: Enviornent to deploy
+        description: Enviornment to deploy
         options: 
         - test
         - prod
