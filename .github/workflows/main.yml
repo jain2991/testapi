@@ -1,6 +1,14 @@
 name: Apigee-POC
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - test
+        - prod
 jobs:
   build:
     name: "Deploy To Dev"
@@ -34,4 +42,4 @@ jobs:
           java-version: 1.8
       - name: Build with maven  
         working-directory: Mock-v1/
-        run: mvn  install -Ptest -Dbearer=${{steps.auth.outputs.access_token}} -Dapigee.config.options=update
+        run: mvn  install -P${{github.event.inputs.name}} -Dbearer=${{steps.auth.outputs.access_token}} -Dapigee.config.options=update
