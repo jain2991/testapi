@@ -18,7 +18,7 @@ jobs:
           create_credentials_file: true
           activate_credentials_file: true
           workload_identity_provider: 'projects/762356276584/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-          service_account: 's1-679@absolute-gantry-344218.iam.gserviceaccount.com'
+          service_account: 'my-service-account1@absolute-gantry-344218.iam.gserviceaccount.com'
 
     # - name: Create API bundle
      #   run: zip -r proxy.zip apiproxy
