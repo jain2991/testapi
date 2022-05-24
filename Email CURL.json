@@ -1,0 +1,26 @@
+curl -X 'POST' \
+  'https://api.experianaperture.io/email/validate/v2' \
+  -H 'accept: application/json' \
+  -H 'Auth-Token: 0450a568-9c1e-4c10-afd5-2c9bda9cdd9f' \
+  -H 'Timeout-Seconds: 15' \
+  -H 'Add-Metadata: true' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "email": "support@experian.com"
+}'
+
+https://api.experianaperture.io/email/validate/v2
+
+
+{
+  "result": {
+    "verbose_output": "roleAccount",
+    "email": "support@experian.com",
+    "confidence": "illegitimate"
+  },
+  "metadata": {
+    "domain_detail": {
+      "type": "business"
+    }
+  }
+}

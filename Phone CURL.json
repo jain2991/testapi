@@ -1,0 +1,51 @@
+curl -X 'POST' \
+  'https://api.experianaperture.io/phone/validate/v2' \
+  -H 'accept: application/json' \
+  -H 'Auth-Token: 0450a568-9c1e-4c10-afd5-2c9bda9cdd9f' \
+  -H 'Add-Metadata: true' \
+  -H 'Timeout-Seconds: 15' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "number": "2016477962",
+  "output_format": "NATIONAL",
+  "cache_value_days": 0,
+  "country_iso": "USA",
+  "get_ported_date": true,
+  "get_disposable_number": true
+}'
+
+
+https://api.experianaperture.io/phone/validate/v2
+
+
+{
+  "result": {
+    "number": "2016477962",
+    "validated_phone_number": "12016477962",
+    "formatted_phone_number": "(201) 647-7962",
+    "phone_type": "Mobile",
+    "confidence": "Verified",
+    "ported_date": "Not applicable",
+    "disposable_number": "Unknown"
+  },
+  "metadata": {
+    "phone_detail": {
+      "original_operator_name": "T-Mobile",
+      "original_network_status": "Available",
+      "original_country_prefix": "1",
+      "original_country_name": "United States of America",
+      "original_country_iso": "USA",
+      "operator_name": "T-Mobile",
+      "network_status": "Available",
+      "home_network_identity": "310260",
+      "country_prefix": "1",
+      "country_name": "Puerto Rico",
+      "country_iso": "PRI",
+      "is_ported": "No",
+      "cache_value_days": 0,
+      "date_cached": "2022-05-20",
+      "email_to_sms_address": "2016477962@tmomail.net",
+      "email_to_mms_address": "2016477962@tmomail.net"
+    }
+  }
+}
